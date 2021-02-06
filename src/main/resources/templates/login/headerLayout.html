@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<link th:href="@{/css/headerLayout.css}" rel="stylesheet"></link>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet"></link>
+<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+<title>headerLayout</title>
+</head>
+<body>
+	<nav th:fragment="header" class="navbar navbar-fixed-top">
+		<div class="container-fluid">
+			<a href="/home"><img class="logo" th:src="${logo}"></a>
+			<div class="dropdown pull-right">
+				<img class="userIcon" th:src="${base64}" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="/changeUserIcon">プロフィール画像の変更</a></li>
+					<li><a href="/changeEmail">メールアドレスの変更</a></li>
+					<li><a href="/changePassword">パスワードの変更</a></li>
+					<li><a href="/contracts">契約の履歴</a></li>
+					<li><a href="/changeContractTime">勤務時間の変更</a></li>
+					<li><a href="/changeContract">契約の更新</a></li>
+					<li><a href="/logout">ログアウト</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+.main {
+	padding-top: 50px;
+	padding-left: 20px;
+	position: fixed;
+	display: block;
+	top: 0px;
+	bottom: 0;
+}
+
+body {
+	padding-top: 50px;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userIcon {
+	border-radius: 50%;
+	border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    height: 45px;
+    width: 45px;
+    z-index: 0;
+    margin-top: 10px;
+}
+.navbar{
+	background-color: #000044;	
+}
+
+.btn{
+	
+}
+
+.serviceName{
+	color: #EEEEEE;
+	font-size: 45px;
+	font-weight: 600;
+	float: left;
+    height: 50px;
+    padding: 30px 15px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+img.logo {
+    height: 45px;
+    z-index: 0;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.container-fluid{
+	margin-right: 32px !important;
+    margin-left: 32px !important;
+	
+}
+
+.dropdown-toggle{
+	margin-top: 10px;
+    margin-left: 10px;
+	
+}
