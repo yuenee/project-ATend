@@ -38,7 +38,7 @@ VALUES(5, 2020, 12, 'true', 'true',1);
 INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
 VALUES(6, 2021, 1, 'false', 'false',1);
 
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
+
 
 -- 2020-08
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
