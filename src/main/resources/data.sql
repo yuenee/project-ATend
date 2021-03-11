@@ -66,3 +66,6 @@ INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTi
 VALUES(9, '2020-12-01', '2020-12-01 09:00:00', '12:00:00', '2020-12-01 17:00:00', 4200, 1, 5);
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
 VALUES(10, '2020-12-05', '2020-12-05 09:00:00', '12:00:00', '2020-12-05 17:00:00', 4200, 1, 5);
+-- 2021-02
+INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
+VALUES(11, '2021-2-01', '2021-2-01 09:00:00', '12:00:00', '2021-2-01 17:00:00', 4200, 1, 7);

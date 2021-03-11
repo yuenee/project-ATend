@@ -30,7 +30,6 @@
 				<tr th:each ="contractDay : ${contractMonth}">
 					<td th:text ="${contractDay.value.workDay}">
 					<td th:text="${contractDay.value.startTime}"></td>
-					<td th:text="${contractDay.value.startTime}"></td>
 					<td th:text="${contractDay.value.endTime}"></td>
 					<td th:text="${contractDay.value.breakTime}"></td>
 					<td>
@@ -49,40 +48,70 @@
 					<a class="nav-link active" id="delete-tab" data-toggle="tab" href="#delete" role="tab" aria-controls="delete">勤務日の削除</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="cange-tab" data-toggle="tab" href="#cange" role="tab" aria-controls="cange">勤務情報の変更</a>
+					<a class="nav-link" id="change-tab" data-toggle="tab" href="#change" role="tab" aria-controls="change">勤務情報の変更</a>
 				</li>
 			</ul>									
-			<div class="tab-content" id="myTabContent">										
-				<div class="tab-pane fade" id="cange" role="tabpanel" aria-labelledby="cange-tab"><br>						
-					<div th:replace="login/workTime.html :: content"></div>
-				</div>							
+			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade text-center" id="delete" role="tabpanel" aria-labelledby="delete-tab">
-					<form method="post" th:action="@{'/contract/'+ ${contractId} + '/' + ${yearMonthUrl}}" th:object="${workTime}">	
+					<form method="post" th:action="@{'/contract/'+ ${contractId} + '/' + ${yearMonthUrl} + '/delete'}" th:object="${workTime}">
 						<br><br>
 						<label>勤務日</label><br>
 						<select name="workTimeId" class="form-control">
 							<option th:each ="workTimes:${workTimes}" th:text="${workTimes.workDay}" th:value="${workTimes.workTimeId}" th:field="*{workTimeId}" th:name="workTimeId"></option>
-						</select>		
+						</select>
 						<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">削除</button>
 						<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
-				 					<div class="modal-header">
+									<div class="modal-header">
 										<h2 class="modal-title" id="myModalLabel">削除確認画面</h2>
 									</div>
 									<div class="modal-body">
 										<p>本当に削除しますか？</p>
 									</div>
-				 					<div class="modal-footer">
-				 						<button type="submit" class="btn btn-primary">はい</button>
-										<button type="submit" class="btn btn-danger" data-dismiss="modal">いいえ</button>								
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary">はい</button>
+										<button type="submit" class="btn btn-danger" data-dismiss="modal">いいえ</button>
 									</div>
 								</div>
-							</div>	
-						</div>						
+							</div>
+						</div>
 					</form>
-				</div>														
-			</div>																								
+				</div>
+				<div class="tab-pane fade" id="change" role="tabpanel" aria-labelledby="change-tab"><br>
+					<form method="post" th:action="@{'/contract/'+ ${contractId} + '/' + ${yearMonthUrl} + '/change'}" th:object="${workTimeForm}">
+						<div class="text-center">
+							<br>
+							<div class="workDay">
+								<label>勤務日</label>
+								<input class="form-control pL58" type="date" th:field="*{workDay}" required>
+								<br>
+							</div>
+							<div class="startTime">
+								<label>始業時間</label>
+								<input class="form-control pL48" type="time" th:field="*{startTime}" required>
+								<br>
+							</div>
+							<div class="breakTime">
+								<label>休憩時間</label>
+								<input class="form-control pL48" type="time" max="03:00" th:field="*{breakTime}" required>
+								<br>
+							</div>
+							<div class="endTime">
+								<label>終業時間</label>
+								<input class="form-control pL48" type="time" th:field="*{endTime}" required>
+								<input type="checkbox" th:field="*{overTimeFlag}" name="overTime"> 0時を過ぎた
+								<br>
+							</div>
+							<br>
+							<div th:each="error:${#fields.detailedErrors()}">
+								<span th:text="${error.message}">Error message</span>
+							</div>
+							<button class="btn btn-primary" type="submit">保存</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>			
 		<div class= "nowRequest" th:if="${displayStatus} == nowRequest">
 			<label>変更申請済み</label>
