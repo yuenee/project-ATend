@@ -8,7 +8,7 @@ INSERT INTO user (userId, userName, email, password, role, permission, frozen, r
 VALUES(2, '管理太郎', 'kanri@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_ADMIN', 'true', 'false', '2020-09-01 23:25:07');
 
 INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expirationTime, changed)
-VALUES(1, 1, 'a22c75b5-3c47-45a4-bf2d-c0eca84031ce', '2021-01-01 00:00:00', FALSE);
+VALUES(1, 1, 'ω', '2021-01-01 00:00:00', FALSE);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
 VALUES(1, 170, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2021-03-31', 1); 
@@ -40,6 +40,9 @@ VALUES(6, 2021, 1, 'false', 'false',1);
 
 INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
 VALUES(7, 2021, 2, 'false', 'false',1);
+
+INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
+VALUES(8, 2021, 6, 'false', 'false',1);
 
 -- 2020-08
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
