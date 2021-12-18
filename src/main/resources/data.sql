@@ -11,7 +11,7 @@ INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expi
 VALUES(1, 1, 'a22c75b5-3c47-45a4-bf2d-c0eca84031ce', '2021-01-01 00:00:00', FALSE);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(1, 4200000, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2022-03-31', 1); 
+VALUES(1, 10200, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2022-03-31', 1); 
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
 VALUES(2, 170, '09:00', '01:00', '18:00', '2023-09-01','KAN', '2024-08-31', 1);
