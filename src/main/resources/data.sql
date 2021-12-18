@@ -11,10 +11,10 @@ INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expi
 VALUES(1, 1, 'a22c75b5-3c47-45a4-bf2d-c0eca84031ce', '2021-01-01 00:00:00', FALSE);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(1, 170, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2021-03-31', 1); 
+VALUES(1, 4200000, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2022-03-31', 1); 
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(2, 170, '09:00', '01:00', '18:00', '2021-09-01','KAN', '2022-08-31', 1);
+VALUES(2, 170, '09:00', '01:00', '18:00', '2023-09-01','KAN', '2024-08-31', 1);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
 VALUES(3, 170, '07:00', '01:00', '18:00', '2020-09-01','YUE', '2021-08-31', 3); 
@@ -41,6 +41,9 @@ VALUES(6, 2021, 1, 'false', 'false',1);
 INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
 VALUES(7, 2021, 2, 'false', 'false',1);
 
+INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
+VALUES(8, 2021, 12, 'false', 'false',1);
+
 -- 2020-08
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
 VALUES(1, '2020-08-01', '2020-08-01 09:00:00', '12:00:00', '2020-08-01 17:00:00', 420, 1, 1);
@@ -63,6 +66,9 @@ INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTi
 VALUES(8, '2020-11-05', '2020-11-05 09:00:00', '12:00:00', '2020-11-05 17:00:00', 420, 1, 4);
 -- 2020-12
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(9, '2020-12-01', '2020-12-01 09:00:00', '12:00:00', '2020-12-01 17:00:00', 4200, 1, 5);
+VALUES(9, '2020-12-01', '2020-12-01 09:00:00', '12:00:00', '2020-12-01 17:00:00', 420, 1, 5);
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(10, '2020-12-05', '2020-12-05 09:00:00', '12:00:00', '2020-12-05 17:00:00', 4200, 1, 5);
+VALUES(10, '2020-12-05', '2020-12-05 09:00:00', '12:00:00', '2020-12-05 17:00:00', 420, 1, 5);
+
+INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
+VALUES(11, '2021-12-01', '2021-12-01 09:00:00', '12:00:00', '2021-12-01 17:00:00', 420, 1, 8);
