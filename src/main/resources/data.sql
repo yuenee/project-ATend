@@ -11,10 +11,10 @@ INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expi
 VALUES(1, 1, 'ω', '2021-01-01 00:00:00', FALSE);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(1, 10200, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2021-03-31', 1); 
+VALUES(1, 10200, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2022-03-31', 1); 
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(2, 170, '09:00', '01:00', '18:00', '2021-09-01','KAN', '2022-08-31', 1);
+VALUES(2, 170, '09:00', '01:00', '18:00', '2022-09-01','KAN', '2022-08-31', 1);
 
 INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
 VALUES(3, 170, '07:00', '01:00', '18:00', '2020-09-01','YUE', '2021-08-31', 3); 
@@ -47,6 +47,8 @@ VALUES(8, 2021, 6, 'false', 'false',1);
 INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
 VALUES(9, 2021, 12, 'false', 'false',1);
 
+
+
 -- 2020-08
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
 VALUES(1, '2020-08-01', '2020-08-01 09:00:00', '12:00:00', '2020-08-01 17:00:00', 420, 1, 1);
@@ -77,4 +79,4 @@ INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTi
 VALUES(11, '2021-2-01', '2021-2-01 09:00:00', '12:00:00', '2021-2-01 17:00:00', 4200, 1, 7);
 
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(12, '2021-12-01', '2021-12-01 09:00:00', '12:00:00', '2021-12-01 17:00:00', 4200, 1, 9);
+VALUES(12, '2021-12-01', '2021-12-01 09:00:00', '12:00:00', '2021-12-01 17:00:00', 420, 1, 9);
