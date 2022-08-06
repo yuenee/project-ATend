@@ -59,7 +59,11 @@ VALUES(12, 2022, 6, 'false', 'false',1);
 INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
 VALUES(13, 2022, 7, 'false', 'false',1);
 
+INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
+VALUES(14, 2022, 8, 'false', 'false',1);
 
+INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
+VALUES(15, 2022, 9, 'false', 'false',1);
 
 
 -- 2020-08
@@ -102,3 +106,9 @@ VALUES(14, '2022-6-01', '2022-6-01 09:00:00', '12:00:00', '2022-6-01 17:00:00', 
 
 INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
 VALUES(15, '2022-7-01', '2022-7-01 09:00:00', '12:00:00', '2022-7-01 17:00:00', 420, 1, 13);
+
+INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
+VALUES(16, '2022-8-01', '2022-7-01 09:00:00', '12:00:00', '2022-7-01 17:00:00', 420, 1, 14);
+
+INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
+VALUES(17, '2022-9-01', '2022-7-01 09:00:00', '12:00:00', '2022-7-01 17:00:00', 420, 1, 15);
