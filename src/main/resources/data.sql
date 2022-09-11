@@ -1,68 +1,70 @@
-INSERT INTO user (userId, userName, email, password, role, permission, frozen, requestedAt)
-VALUES(1, 'いいちゅかはやちょ', 'itsuka@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_GENERAL', 'false', 'false', '2020-09-01 23:25:07');
+INSERT INTO user (userId, userName, email, password, role, permission, frozen, requestedAt) 
+VALUES(1, 'いいちゅかはやちょ', 'itsuka@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_GENERAL', 'false', 'false', '2020-09-01 23:25:07'),
+(2, '管理太郎', 'kanri@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_ADMIN', 'true', 'false', '2020-09-01 23:25:07'),
+(3, '富田', 'tomita@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_GENERAL', 'false', 'false', '2020-09-01 23:25:07');
 
-INSERT INTO user (userId, userName, email, password, role, permission, frozen, requestedAt)
-VALUES(3, '富田', 'tomita@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_GENERAL', 'false', 'false', '2020-09-01 23:25:07');
+INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expirationTime, changed) 
+VALUES(1, 1, 'ω', '2021-01-01 00:00:00', FALSE);
 
-INSERT INTO user (userId, userName, email, password, role, permission, frozen, requestedAt)
-VALUES(2, '管理太郎', 'kanri@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', 'ROLE_ADMIN', 'true', 'false', '2020-09-01 23:25:07');
+INSERT INTO contract (contractId, contractTime, startTime, breakTime, endTime, startDate, officeName, endDate, userId) 
+VALUES(1, 10200, '09:00', '01:00', '18:00', '2020-08-01', 'LIM', '2022-12-31', 1),
+(2, 170, '09:00', '01:00', '18:00', '2023-01-01', 'KAN', '2023-12-31', 1),
+(3, 170, '07:00', '01:00', '18:00', '2020-09-01', 'YUE', '2021-08-31', 3);
 
-INSERT INTO reissuePassword (reissuePasswordId, userId, passwordResetToken, expirationTime, changed)
-VALUES(1, 1, 'a22c75b5-3c47-45a4-bf2d-c0eca84031ce', '2021-01-01 00:00:00', FALSE);
+INSERT INTO month (monthId, year, month, deadlineStatus, requestStatus, contractId) 
+VALUES(1, 2020, 8, 'false', 'false', 1),
+(2, 2020, 9, 'true', 'false', 1),
+(3, 2020, 10, 'false', 'true', 1),
+(4, 2020, 11, 'true', 'false', 1),
+(5, 2020, 12, 'true', 'true', 1),
+(6, 2021, 1, 'false', 'false', 1),
+(7, 2021, 2, 'false', 'false', 1),
+(8, 2021, 6, 'false', 'false', 1),
+(9, 2021, 12, 'false', 'false', 1),
+(10, 2022, 1, 'false', 'false', 1),
+(11, 2022, 5, 'false', 'false', 1),
+(12, 2022, 6, 'false', 'false', 1),
+(13, 2022, 7, 'false', 'false', 1),
+(14, 2022, 8, 'false', 'false', 1),
+(15, 2022, 9, 'false', 'false', 1),
+(16, 2022, 10, 'false', 'false', 1),
+(17, 2022, 11, 'false', 'false', 1),
+(18, 2022, 12, 'false', 'false', 1);
 
-INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(1, 170, '09:00', '01:00', '18:00', '2020-08-01','LIM', '2021-03-31', 1); 
 
-INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(2, 170, '09:00', '01:00', '18:00', '2021-09-01','KAN', '2022-08-31', 1);
-
-INSERT INTO contract (contractId, contractTime, startTime,breakTime,endTime,startDate,officeName, endDate, userId)
-VALUES(3, 170, '07:00', '01:00', '18:00', '2020-09-01','YUE', '2021-08-31', 3); 
-
-
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(1, 2020, 8, 'false', 'false',1);
-
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(2, 2020, 9, 'true', 'false',1);
- 
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(3, 2020, 10, 'false', 'true',1);
- 
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(4, 2020, 11, 'true', 'false',1);
-
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(5, 2020, 12, 'true', 'true',1);
-
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(6, 2021, 1, 'false', 'false',1);
-
-INSERT INTO month (monthId, year, month, deadlineStatus,requestStatus,contractId)
-VALUES(7, 2021, 2, 'false', 'false',1);
-
+INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId) 
 -- 2020-08
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(1, '2020-08-01', '2020-08-01 09:00:00', '12:00:00', '2020-08-01 17:00:00', 420, 1, 1);
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(2, '2020-08-05', '2020-08-05 09:00:00', '12:00:00', '2020-08-05 17:00:00', 420, 1, 1);
+VALUES(1, '2020-08-01', '2020-08-01 09:00:00', '12:00:00', '2020-08-01 17:00:00', 420, 1, 1),
+(2, '2020-08-05', '2020-08-05 09:00:00', '12:00:00', '2020-08-05 17:00:00', 420, 1, 1),
 -- 2020-09
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(3, '2020-09-01', '2020-09-01 09:00:00', '12:00:00', '2020-09-01 17:00:00', 420, 1, 2);
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(4, '2020-09-05', '2020-09-05 09:00:00', '12:00:00', '2020-09-05 17:00:00', 420, 1, 2);
+(3, '2020-09-01', '2020-09-01 09:00:00', '12:00:00', '2020-09-01 17:00:00', 420, 1, 2),
+(4, '2020-09-05', '2020-09-05 09:00:00', '12:00:00', '2020-09-05 17:00:00', 420, 1, 2),
 -- 2020-10
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(5, '2020-10-01', '2020-10-01 09:00:00', '12:00:00', '2020-10-01 17:00:00', 420, 1, 3);
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(6, '2020-10-05', '2020-10-05 09:00:00', '12:00:00', '2020-10-05 17:00:00', 420, 1, 3);
+(5, '2020-10-01', '2020-10-01 09:00:00', '12:00:00', '2020-10-01 17:00:00', 420, 1, 3),
+(6, '2020-10-05', '2020-10-05 09:00:00', '12:00:00', '2020-10-05 17:00:00', 420, 1, 3),
 -- 2020-11
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(7, '2020-11-01', '2020-11-01 09:00:00', '12:00:00', '2020-11-01 17:00:00', 420, 1, 4);
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(8, '2020-11-05', '2020-11-05 09:00:00', '12:00:00', '2020-11-05 17:00:00', 420, 1, 4);
+(7, '2020-11-01', '2020-11-01 09:00:00', '12:00:00', '2020-11-01 17:00:00', 420, 1, 4),
+(8, '2020-11-05', '2020-11-05 09:00:00', '12:00:00', '2020-11-05 17:00:00', 420, 1, 4),
 -- 2020-12
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(9, '2020-12-01', '2020-12-01 09:00:00', '12:00:00', '2020-12-01 17:00:00', 4200, 1, 5);
-INSERT INTO workTime (workTimeId, workDay, startTime, breakTime, endTime, workTimeMinute, contractId, monthId)
-VALUES(10, '2020-12-05', '2020-12-05 09:00:00', '12:00:00', '2020-12-05 17:00:00', 4200, 1, 5);
+(9, '2020-12-01', '2020-12-01 09:00:00', '12:00:00', '2020-12-01 17:00:00', 420, 1, 5),
+(10, '2020-12-05', '2020-12-05 09:00:00', '12:00:00', '2020-12-05 17:00:00', 420, 1, 5),
+-- 2021-02
+(11, '2021-2-01', '2021-2-01 09:00:00', '12:00:00', '2021-2-01 17:00:00', 420, 1, 7),
+-- 2021-12
+(12, '2021-12-01', '2021-12-01 09:00:00', '12:00:00', '2021-12-01 17:00:00', 420, 1, 9),
+-- 2022-05
+(13, '2022-5-01', '2022-5-01 09:00:00', '12:00:00', '2022-5-01 17:00:00', 420, 1, 11),
+-- 2022-06
+(14, '2022-6-01', '2022-6-01 09:00:00', '12:00:00', '2022-6-01 17:00:00', 420, 1, 12),
+-- 2022-07
+(15, '2022-7-01', '2022-7-01 09:00:00', '12:00:00', '2022-7-01 17:00:00', 420, 1, 13),
+-- 2022-08
+(16, '2022-8-01', '2022-8-01 09:00:00', '12:00:00', '2022-8-01 17:00:00', 420, 1, 14),
+-- 2022-09
+(17, '2022-9-01', '2022-9-01 09:00:00', '12:00:00', '2022-9-01 17:00:00', 420, 1, 15),
+-- 2022-10
+(18, '2022-10-01', '2022-10-01 09:00:00', '12:00:00', '2022-10-01 17:00:00', 420, 1, 16),
+-- 2022-11
+(19, '2022-11-01', '2022-11-01 09:00:00', '12:00:00', '2022-11-01 17:00:00', 420, 1, 17),
+-- 2022-12
+(20, '2022-12-01', '2022-12-01 09:00:00', '12:00:00', '2022-12-01 17:00:00', 420, 1, 18);

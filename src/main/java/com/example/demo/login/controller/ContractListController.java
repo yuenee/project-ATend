@@ -8,9 +8,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.example.demo.login.domain.service.transaction.WorkTimeTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +56,9 @@ public class ContractListController {
 
 	@Autowired
 	HttpServletRequest request;
+
+	@Autowired
+	WorkTimeTransaction workTimeTransaction;
 
 	@GetMapping("/contracts")
 	public String getContractList(Model model) throws IOException {
@@ -109,9 +115,8 @@ public class ContractListController {
 		return "login/contractDay";
 	}
 
-	@PostMapping("/contract/{contractId}/{yearMonth}")
-	public String postContractDay(@ModelAttribute WorkTime form, Model model,
-			@PathVariable("contractId") int contractId, @PathVariable("yearMonth") String yearMonth)
+	@PostMapping("/contract/{contractId}/{yearMonth}/delete")
+	public String postContractDay(@ModelAttribute WorkTime form, Model model)
 			throws IOException {
 
 		int userId = sessionUtil.getUserId(request);
@@ -123,6 +128,37 @@ public class ContractListController {
 
 		return "redirect:/contract/{contractId}/{yearMonth}";
 	}
+
+	@PostMapping("/contract/{contractId}/{yearMonth}/change")
+	public String postWorkTime(@ModelAttribute @Validated WorkTimeForm form, BindingResult bindingResult, Model model) throws IOException {
+
+		int userId = sessionUtil.getUserId(request);
+
+		String nowYearMonth = dateTimeUtil.toStringDate(LocalDate.now(), "yyyyMM");
+
+		int year = monthService.latestMonth(userId).getYear();
+		int month = monthService.latestMonth(userId).getMonth();
+		String latestYearMonth = dateTimeUtil.toStringYearMonth(year, month);
+
+		if (!(workTimeService.hasExist(workTimeService.setWorkTime(form, userId)))) {
+			workTimeService.updateOne(workTimeService.setWorkTime(form, userId));
+
+		} else if (nowYearMonth.equals(latestYearMonth)) {
+			workTimeService.insertOne(workTimeService.setWorkTime(form, userId));
+
+		} else {
+			workTimeTransaction.insertMonthAndWork(form, userId);
+		}
+
+		model.addAttribute("base64", userIconService.uploadImage(userId));
+		model.addAttribute("logo", userIconService.uploadLogoImage());
+
+		return "redirect:/contract/{contractId}/{yearMonth}";
+	}
+
+
+
+
 
 	@GetMapping("/contract/{contractId}/{yearMonth}/changeRequestStatus")
 	public String changeRequestStatus(@PathVariable("contractId") int contractId,

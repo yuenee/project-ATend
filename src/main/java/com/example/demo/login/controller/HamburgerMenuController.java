@@ -67,14 +67,16 @@ public class HamburgerMenuController {
 	}
 
 	@PostMapping("/changeUserIcon")
-	public String postChengeUserIcon(UserIconForm form, Model model) throws IOException {
+	public String postChangeUserIcon(UserIconForm form, Model model) throws IOException {
 
 		int userId = sessionUtil.getUserId(request);
+
+		userIconService.setImage(form.getFile(), userId);
 
 		model.addAttribute("base64", userIconService.uploadImage(userId));
 		model.addAttribute("logo", userIconService.uploadLogoImage());		
 
-		return "redirect:/home";
+		return "redirect:/changeUserIcon";
 	}
 
 	@GetMapping("/changePassword")
@@ -91,7 +93,7 @@ public class HamburgerMenuController {
 	}
 
 	@PostMapping("/changePassword")
-	public String postChengePassword(@ModelAttribute @Validated ChangePasswordForm form, BindingResult bindingResult,
+	public String postChangePassword(@ModelAttribute @Validated ChangePasswordForm form, BindingResult bindingResult,
 			Model model) throws IOException {
 
 		int userId = sessionUtil.getUserId(request);
@@ -122,7 +124,7 @@ public class HamburgerMenuController {
 	}
 
 	@PostMapping("/changeEmail")
-	public String postChengeEmail(@ModelAttribute @Validated ChangeEmailForm form, BindingResult bindingResult,
+	public String postChangeEmail(@ModelAttribute @Validated ChangeEmailForm form, BindingResult bindingResult,
 			Model model) throws IOException {
 
 		int userId = sessionUtil.getUserId(request);
